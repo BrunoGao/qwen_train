@@ -1,0 +1,17 @@
+error: `#[inline]` attribute cannot be used on structs
+  --> $DIR/attr-usage-inline.rs:7:1
+   |
+LL | #[inline]
+   | ^^^^^^^^^
+   |
+   = help: `#[inline]` can only be applied to functions
+
+error[E0518]: attribute should be applied to function or closure
+  --> $DIR/attr-usage-inline.rs:21:1
+   |
+LL | #[inline]
+   | ^^^^^^^^^ not a function or closure
+
+error: aborting due to 2 previous errors
+
+For more information about this error, try `rustc --explain E0518`.

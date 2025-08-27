@@ -1,0 +1,187 @@
+{
+  "summary": {
+    "total_repos": 25,
+    "successful": 25,
+    "failed": 0,
+    "success_rate": "100.0%",
+    "download_time": "2025-08-27 13:49:27"
+  },
+  "successful_repos": [
+    {
+      "name": "django/django",
+      "language": "Python",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/python/django",
+      "size_mb": 44.48
+    },
+    {
+      "name": "tiangolo/fastapi",
+      "language": "Python",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/python/fastapi",
+      "size_mb": 26.89
+    },
+    {
+      "name": "pallets/flask",
+      "language": "Python",
+      "priority": "MEDIUM",
+      "local_path": "repositories/medium_priority/python/flask",
+      "size_mb": 1.7
+    },
+    {
+      "name": "huggingface/transformers",
+      "language": "Python",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/python/transformers",
+      "size_mb": 88.46
+    },
+    {
+      "name": "pytorch/pytorch",
+      "language": "Python",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/python/pytorch",
+      "size_mb": 165.95
+    },
+    {
+      "name": "spring-projects/spring-framework",
+      "language": "Java",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/java/spring-framework",
+      "size_mb": 58.71
+    },
+    {
+      "name": "tensorflow/tensorflow",
+      "language": "Python",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/python/tensorflow",
+      "size_mb": 357.37
+    },
+    {
+      "name": "spring-projects/spring-boot",
+      "language": "Java",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/java/spring-boot",
+      "size_mb": 36.64
+    },
+    {
+      "name": "microsoft/vcpkg",
+      "language": "C++",
+      "priority": "MEDIUM",
+      "local_path": "repositories/medium_priority/c++/vcpkg",
+      "size_mb": 18.88
+    },
+    {
+      "name": "apache/kafka",
+      "language": "Java",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/java/kafka",
+      "size_mb": 69.99
+    },
+    {
+      "name": "facebook/folly",
+      "language": "C++",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/c++/folly",
+      "size_mb": 21.48
+    },
+    {
+      "name": "google/leveldb",
+      "language": "C++",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/c++/leveldb",
+      "size_mb": 0.99
+    },
+    {
+      "name": "simdjson/simdjson",
+      "language": "C++",
+      "priority": "MEDIUM",
+      "local_path": "repositories/medium_priority/c++/simdjson",
+      "size_mb": 22.42
+    },
+    {
+      "name": "osquery/osquery",
+      "language": "C++",
+      "priority": "MEDIUM",
+      "local_path": "repositories/medium_priority/c++/osquery",
+      "size_mb": 17.73
+    },
+    {
+      "name": "moby/moby",
+      "language": "Go",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/go/moby",
+      "size_mb": 85.95
+    },
+    {
+      "name": "prometheus/prometheus",
+      "language": "Go",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/go/prometheus",
+      "size_mb": 23.91
+    },
+    {
+      "name": "etcd-io/etcd",
+      "language": "Go",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/go/etcd",
+      "size_mb": 15.03
+    },
+    {
+      "name": "istio/istio",
+      "language": "Go",
+      "priority": "MEDIUM",
+      "local_path": "repositories/medium_priority/go/istio",
+      "size_mb": 31.51
+    },
+    {
+      "name": "apache/hadoop",
+      "language": "Java",
+      "priority": "MEDIUM",
+      "local_path": "repositories/medium_priority/java/hadoop",
+      "size_mb": 230.89
+    },
+    {
+      "name": "tauri-apps/tauri",
+      "language": "Rust",
+      "priority": "MEDIUM",
+      "local_path": "repositories/medium_priority/rust/tauri",
+      "size_mb": 20.4
+    },
+    {
+      "name": "kubernetes/kubernetes",
+      "language": "Go",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/go/kubernetes",
+      "size_mb": 236.68
+    },
+    {
+      "name": "surrealdb/surrealdb",
+      "language": "Rust",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/rust/surrealdb",
+      "size_mb": 15.24
+    },
+    {
+      "name": "tokio-rs/tokio",
+      "language": "Rust",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/rust/tokio",
+      "size_mb": 5.28
+    },
+    {
+      "name": "elastic/elasticsearch",
+      "language": "Java",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/java/elasticsearch",
+      "size_mb": 304.96
+    },
+    {
+      "name": "rust-lang/rust",
+      "language": "Rust",
+      "priority": "HIGH",
+      "local_path": "repositories/high_priority/rust/rust",
+      "size_mb": 190.41
+    }
+  ],
+  "failed_repos": []
+}

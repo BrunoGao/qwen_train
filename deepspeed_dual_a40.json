@@ -1,0 +1,108 @@
+{
+  "train_batch_size": 32,
+  "train_micro_batch_size_per_gpu": 1,
+  "gradient_accumulation_steps": 16,
+  
+  "optimizer": {
+    "type": "AdamW",
+    "params": {
+      "lr": 1.5e-5,
+      "betas": [0.9, 0.95],
+      "eps": 1e-8,
+      "weight_decay": 0.01
+    }
+  },
+  
+  "scheduler": {
+    "type": "WarmupCosineLR",
+    "params": {
+      "warmup_min_lr": 0,
+      "warmup_max_lr": 1.5e-5,
+      "warmup_num_steps": 2000,
+      "total_num_steps": 50000
+    }
+  },
+  
+  "fp16": {
+    "enabled": false
+  },
+  
+  "bf16": {
+    "enabled": true
+  },
+  
+  "zero_optimization": {
+    "stage": 2,
+    "allgather_partitions": true,
+    "allgather_bucket_size": 200000000,
+    "overlap_comm": true,
+    "reduce_scatter": true,
+    "reduce_bucket_size": 200000000,
+    "contiguous_gradients": true,
+    "cpu_offload": false,
+    "stage3_prefetch_bucket_size": "auto",
+    "stage3_param_persistence_threshold": "auto",
+    "sub_group_size": 1e9,
+    "stage3_max_live_parameters": 1e9,
+    "stage3_max_reuse_distance": 1e9
+  },
+  
+  "activation_checkpointing": {
+    "partition_activations": false,
+    "cpu_checkpointing": false,
+    "contiguous_memory_optimization": true,
+    "number_checkpoints": 4,
+    "synchronize_checkpoint_boundary": false,
+    "profile": false
+  },
+  
+  "gradient_clipping": 1.0,
+  
+  "steps_per_print": 50,
+  
+  "wall_clock_breakdown": false,
+  
+  "dump_state": false,
+  
+  "memory_breakdown": false,
+  
+  "communication_data_type": "fp16",
+  
+  "sparse_attention": {
+    "mode": "fixed",
+    "block": 16,
+    "different_layout_per_head": true,
+    "num_local_blocks": 4,
+    "num_global_blocks": 1,
+    "attention": "bidirectional",
+    "horizontal_global_attention": false,
+    "num_different_global_patterns": 4
+  },
+  
+  "curriculum_learning": {
+    "enabled": false
+  },
+  
+  "data_sampling": {
+    "enabled": false,
+    "num_epochs": 1000,
+    "num_workers": 2,
+    "curriculum_learning": {
+      "enabled": false
+    }
+  },
+  
+  "tensorboard": {
+    "enabled": true,
+    "output_path": "/codes/logs/tensorboard/",
+    "job_name": "qwen_dual_a40_training"
+  },
+  
+  "flops_profiler": {
+    "enabled": false,
+    "profile_step": 1,
+    "module_depth": -1,
+    "top_modules": 3,
+    "detailed": true
+  }
+}

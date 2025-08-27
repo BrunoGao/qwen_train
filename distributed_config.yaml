@@ -1,0 +1,74 @@
+# Qwen 2.5 Code A40 分布式训练配置
+
+# 节点配置
+nodes:
+  master_node:
+    ip: "192.168.1.100"
+    gpus: ["0", "1"]  # A40 GPU IDs
+    port: 29500
+    
+  worker_nodes:
+    - ip: "192.168.1.101"
+      gpus: ["0", "1"]
+    - ip: "192.168.1.102"
+      gpus: ["0", "1"] 
+    - ip: "192.168.1.103"
+      gpus: ["0", "1"]
+
+# 训练配置
+training:
+  total_gpus: 8  # 4 nodes x 2 GPUs
+  batch_size_per_gpu: 2
+  gradient_accumulation_steps: 8
+  effective_batch_size: 128  # 8 GPUs x 2 batch x 8 accumulation
+
+# A40 GPU 优化参数
+gpu_optimization:
+  memory_limit: 48  # A40 48GB memory
+  reserved_memory: 2  # Reserve 2GB for system
+  max_memory_per_gpu: 46  # Available for training
+  
+  # Memory management
+  gradient_checkpointing: true
+  cpu_offload: false  # A40 has enough memory
+  zero_stage: 2  # DeepSpeed ZeRO stage 2
+  
+  # Precision settings
+  fp16: false
+  bf16: true  # A40 supports BF16
+  
+  # Communication optimization
+  bucket_size: 500000000  # 500MB
+  allgather_bucket_size: 500000000
+  reduce_bucket_size: 500000000
+
+# Model configuration
+model:
+  name: "Qwen2.5-7B-Code"
+  parameters: 7000000000
+  vocab_size: 152064
+  hidden_size: 4096
+  num_layers: 32
+  max_position_embeddings: 131072
+  
+  # Memory estimation per GPU (FP16)
+  model_memory_gb: 14  # 7B params * 2 bytes
+  optimizer_memory_gb: 28  # AdamW states
+  gradient_memory_gb: 14  # Gradients
+  activation_memory_gb: 8  # Activations with checkpointing
+  total_memory_gb: 64  # Total needed without ZeRO
+  
+  # With ZeRO Stage 2
+  zero2_memory_gb: 32  # Reduced by ~50%
+
+# Performance targets
+performance:
+  target_tokens_per_second: 2000
+  target_samples_per_second: 0.5
+  estimated_training_time_hours: 48  # For 3 epochs
+  
+  # Throughput estimation
+  sequence_length: 4096
+  tokens_per_sample: 4096
+  samples_per_batch: 128
+  tokens_per_batch: 524288  # 128 * 4096

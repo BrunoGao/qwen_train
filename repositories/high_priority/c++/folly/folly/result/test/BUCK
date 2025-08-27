@@ -1,0 +1,44 @@
+load("@fbcode_macros//build_defs:build_file_migration.bzl", "fbcode_target")
+load("@fbcode_macros//build_defs:cpp_benchmark.bzl", "cpp_benchmark")
+load("@fbcode_macros//build_defs:cpp_unittest.bzl", "cpp_unittest")
+
+oncall("fbcode_entropy_wardens_folly")
+
+fbcode_target(
+    _kind = cpp_unittest,
+    name = "result_test",
+    srcs = ["result_test.cpp"],
+    deps = ["//folly/result:gtest_helpers"],
+)
+
+fbcode_target(
+    _kind = cpp_unittest,
+    name = "try_test",
+    srcs = ["try_test.cpp"],
+    deps = [
+        "//folly/portability:gtest",
+        "//folly/result:try",
+    ],
+)
+
+fbcode_target(
+    _kind = cpp_benchmark,
+    name = "result_coro_bench",
+    srcs = ["result_coro_bench.cpp"],
+    deps = [
+        "//folly:benchmark",
+        "//folly:portability",
+        "//folly/lang:keep",
+        "//folly/result:result",
+    ],
+)
+
+fbcode_target(
+    _kind = cpp_unittest,
+    name = "value_only_result_test",
+    srcs = ["value_only_result_test.cpp"],
+    deps = [
+        "//folly/result:gtest_helpers",
+        "//folly/result:value_only_result",
+    ],
+)

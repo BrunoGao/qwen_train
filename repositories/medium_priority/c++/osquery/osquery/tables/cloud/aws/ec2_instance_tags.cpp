@@ -1,0 +1,84 @@
+/**
+ * Copyright (c) 2014-present, The osquery authors
+ *
+ * This source code is licensed as defined by the LICENSE file found in the
+ * root directory of this source tree.
+ *
+ * SPDX-License-Identifier: (Apache-2.0 OR GPL-2.0-only)
+ */
+
+#include <string>
+
+#include <aws/core/utils/Outcome.h>
+#include <aws/ec2/EC2Client.h>
+#include <aws/ec2/model/DescribeTagsRequest.h>
+
+#include <osquery/core/tables.h>
+#include <osquery/logger/logger.h>
+#include <osquery/utils/aws/aws_util.h>
+
+namespace osquery {
+namespace tables {
+
+namespace ec2 = Aws::EC2;
+namespace model = Aws::EC2::Model;
+
+QueryData genEc2InstanceTags(QueryContext& context) {
+  QueryData results;
+
+  auto opt_instance_info = getInstanceIDAndRegion();
+
+  if (!opt_instance_info.has_value()) {
+    LOG(WARNING) << "Failed to retrieve region and instance id";
+    return results;
+  }
+
+  const auto& [instance_id, region] = *opt_instance_info;
+
+  if (instance_id.empty() || region.empty()) {
+    LOG(WARNING) << "Instance id and region are empty, returning no results";
+    return results;
+  }
+
+  auto aws_region_res = AWSRegion::make(region, false);
+
+  if (aws_region_res.isError()) {
+    LOG(WARNING) << "Invalid region used to get EC2 instance tag: "
+                 << aws_region_res.getError();
+    return results;
+  }
+
+  std::shared_ptr<ec2::EC2Client> client;
+  Status s = makeAWSClient<ec2::EC2Client>(client, aws_region_res.get(), false);
+  if (!s.ok()) {
+    LOG(WARNING) << "Failed to create EC2 client: " << s.what();
+    return results;
+  }
+
+  model::Filter filter;
+  filter.WithName("resource-id").AddValues(instance_id);
+
+  model::DescribeTagsRequest request;
+  request.SetMaxResults(50); // Max tags per EC2 instance
+  request.AddFilters(filter);
+
+  model::DescribeTagsOutcome outcome = client->DescribeTags(request);
+  if (!outcome.IsSuccess()) {
+    VLOG(1) << "Error getting EC2 instance tags: "
+            << outcome.GetError().GetMessage();
+    return results;
+  }
+
+  model::DescribeTagsResponse response = outcome.GetResult();
+  for (const auto& it : response.GetTags()) {
+    Row r;
+    r["instance_id"] = instance_id;
+    r["key"] = SQL_TEXT(it.GetKey());
+    r["value"] = SQL_TEXT(it.GetValue());
+    results.push_back(r);
+  }
+
+  return results;
+}
+} // namespace tables
+} // namespace osquery

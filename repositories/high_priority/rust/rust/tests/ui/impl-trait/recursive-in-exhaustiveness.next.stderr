@@ -1,0 +1,21 @@
+error[E0282]: type annotations needed
+  --> $DIR/recursive-in-exhaustiveness.rs:19:17
+   |
+LL |     let (x,) = (build(x),);
+   |                 ^^^^^^^^ cannot infer type
+
+error[E0282]: type annotations needed
+  --> $DIR/recursive-in-exhaustiveness.rs:29:17
+   |
+LL |     let (x,) = (build2(x),);
+   |                 ^^^^^^^^^ cannot infer type
+
+error[E0282]: type annotations needed
+  --> $DIR/recursive-in-exhaustiveness.rs:40:5
+   |
+LL |     build3(x)
+   |     ^^^^^^^^^ cannot infer type
+
+error: aborting due to 3 previous errors
+
+For more information about this error, try `rustc --explain E0282`.

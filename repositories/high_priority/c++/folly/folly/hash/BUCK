@@ -1,0 +1,231 @@
+load("@fbcode_macros//build_defs:build_file_migration.bzl", "fbcode_target", "non_fbcode_target")
+load("@fbcode_macros//build_defs:cpp_library.bzl", "cpp_library")
+load("@fbsource//xplat/folly:defs.bzl", "folly_xplat_library")
+load("@fbsource//xplat/pfh/triage_InfrastructureSupermoduleOptou:DEFS.bzl", "triage_InfrastructureSupermoduleOptou")
+
+oncall("fbcode_entropy_wardens_folly")
+
+# xplat build rules
+
+non_fbcode_target(
+    _kind = folly_xplat_library,
+    name = "checksum",
+    srcs = [
+        "Checksum.cpp",
+    ],
+    compiler_flags = [
+        "-fno-omit-frame-pointer",
+    ],
+    feature = triage_InfrastructureSupermoduleOptou,
+    raw_headers = [
+        "Checksum.h",
+    ],
+    exported_deps = [
+        "//third-party/boost:boost",
+        "//xplat/folly:cpu_id",
+        "//xplat/folly:external_fastcrc32_avx512",
+        "//xplat/folly:external_fastcrc32_neon",
+        "//xplat/folly:external_fastcrc32_neon_eor3_sha3",
+        "//xplat/folly:external_fastcrc32_sse42",
+        "//xplat/folly/detail:traponavx512",
+        "//xplat/folly/external/nvidia/hash:checksum",  # @manual
+        "//xplat/folly/hash/detail:checksum_detail",
+    ],
+)
+
+non_fbcode_target(
+    _kind = folly_xplat_library,
+    name = "farm_hash",
+    feature = triage_InfrastructureSupermoduleOptou,
+    raw_headers = [
+        "FarmHash.h",
+    ],
+    deps = [
+        "//xplat/folly:external_farmhash_farmhash",
+    ],
+)
+
+non_fbcode_target(
+    _kind = folly_xplat_library,
+    name = "hash",
+    feature = triage_InfrastructureSupermoduleOptou,
+    raw_headers = [
+        "Hash.h",
+    ],
+    deps = [
+        ":murmur_hash",
+        ":spooky_hash_v1",
+        ":spooky_hash_v2",
+        "//xplat/folly:c_portability",
+        "//xplat/folly:traits",
+        "//xplat/folly:utility",
+        "//xplat/folly/functional:apply_tuple",
+        "//xplat/folly/lang:bits",
+    ],
+)
+
+non_fbcode_target(
+    _kind = folly_xplat_library,
+    name = "murmur_hash",
+    feature = triage_InfrastructureSupermoduleOptou,
+    raw_headers = [
+        "MurmurHash.h",
+    ],
+    deps = [
+        "//xplat/folly:bits",
+        "//xplat/folly:c_portability",
+        "//xplat/folly:portability",
+    ],
+)
+
+non_fbcode_target(
+    _kind = folly_xplat_library,
+    name = "rapidhash",
+    feature = triage_InfrastructureSupermoduleOptou,
+    raw_headers = [
+        "rapidhash.h",
+    ],
+    deps = [
+        "//xplat/folly:external_rapidhash",
+    ],
+)
+
+non_fbcode_target(
+    _kind = folly_xplat_library,
+    name = "spooky_hash_v1",
+    srcs = [
+        "SpookyHashV1.cpp",
+    ],
+    feature = triage_InfrastructureSupermoduleOptou,
+    raw_headers = [
+        "SpookyHashV1.h",
+    ],
+    deps = [
+        "//xplat/folly:cpp_attributes",
+    ],
+)
+
+non_fbcode_target(
+    _kind = folly_xplat_library,
+    name = "spooky_hash_v2",
+    srcs = [
+        "SpookyHashV2.cpp",
+    ],
+    feature = triage_InfrastructureSupermoduleOptou,
+    raw_headers = [
+        "SpookyHashV2.h",
+    ],
+    deps = [
+        "//xplat/folly:cpp_attributes",
+        "//xplat/folly:portability",
+        "//xplat/folly/lang:c_string",
+    ],
+)
+
+non_fbcode_target(
+    _kind = folly_xplat_library,
+    name = "traits",
+    feature = triage_InfrastructureSupermoduleOptou,
+    raw_headers = [
+        "traits.h",
+    ],
+    deps = [
+        "//xplat/folly:traits",
+    ],
+)
+
+# fbcode build rules
+
+fbcode_target(
+    _kind = cpp_library,
+    name = "checksum",
+    srcs = ["Checksum.cpp"],
+    headers = ["Checksum.h"],
+    deps = [
+        "//folly:cpu_id",
+        "//folly/detail:traponavx512",
+        "//folly/external/fast-crc32:avx512_crc32c_v8s3x4",  # @manual
+        "//folly/external/fast-crc32:neon_crc32c_v3s4x2e_v2",  # @manual
+        "//folly/external/fast-crc32:neon_eor3_crc32_v9s3x2e_s3",  # @manual
+        "//folly/external/fast-crc32:neon_eor3_crc32c_v8s2x4_s3",  # @manual
+        "//folly/external/fast-crc32:sse_crc32c_v8s3x3",  # @manual
+        "//folly/hash/detail:checksum_detail",
+    ],
+    external_deps = [
+        "boost",
+    ],
+)
+
+fbcode_target(
+    _kind = cpp_library,
+    name = "farm_hash",
+    headers = ["FarmHash.h"],
+    exported_deps = [
+        "//folly/external/farmhash:farmhash",
+    ],
+)
+
+fbcode_target(
+    _kind = cpp_library,
+    name = "hash",
+    headers = ["Hash.h"],
+    exported_deps = [
+        ":murmur_hash",
+        ":spooky_hash_v1",
+        ":spooky_hash_v2",
+        "//folly:c_portability",
+        "//folly:portability",
+        "//folly:traits",
+        "//folly:utility",
+        "//folly/functional:apply_tuple",
+        "//folly/lang:bits",
+    ],
+)
+
+fbcode_target(
+    _kind = cpp_library,
+    name = "rapidhash",
+    headers = ["rapidhash.h"],
+    exported_deps = [
+        "//folly/external/rapidhash:rapidhash",
+    ],
+)
+
+fbcode_target(
+    _kind = cpp_library,
+    name = "spooky_hash_v1",
+    srcs = ["SpookyHashV1.cpp"],
+    headers = ["SpookyHashV1.h"],
+)
+
+fbcode_target(
+    _kind = cpp_library,
+    name = "spooky_hash_v2",
+    srcs = ["SpookyHashV2.cpp"],
+    headers = ["SpookyHashV2.h"],
+    exported_deps = [
+        "//folly:c_portability",
+        "//folly:portability",
+        "//folly/lang:c_string",
+    ],
+)
+
+fbcode_target(
+    _kind = cpp_library,
+    name = "traits",
+    headers = ["traits.h"],
+    exported_deps = [
+        "//folly:traits",
+    ],
+)
+
+fbcode_target(
+    _kind = cpp_library,
+    name = "murmur_hash",
+    headers = ["MurmurHash.h"],
+    exported_deps = [
+        "//folly:c_portability",
+        "//folly/lang:bits",
+        "//folly/portability:constexpr",
+    ],
+)

@@ -1,0 +1,52 @@
+2025-08-27 13:48:41,196 - WARNING - Git LFS未安装，大文件可能无法正确下载
+2025-08-27 13:48:41,196 - INFO - 成功加载 25 个仓库配置
+2025-08-27 13:48:41,197 - INFO - 正在下载 tensorflow/tensorflow (尝试 1/3)
+2025-08-27 13:48:41,198 - INFO - 正在下载 pytorch/pytorch (尝试 1/3)
+2025-08-27 13:48:41,198 - INFO - 正在下载 huggingface/transformers (尝试 1/3)
+2025-08-27 13:48:41,199 - INFO - 正在下载 django/django (尝试 1/3)
+2025-08-27 13:48:43,528 - INFO - ✅ django/django 下载完成
+2025-08-27 13:48:44,227 - INFO - 正在下载 tiangolo/fastapi (尝试 1/3)
+2025-08-27 13:48:45,675 - INFO - ✅ tiangolo/fastapi 下载完成
+2025-08-27 13:48:45,771 - INFO - 正在下载 pallets/flask (尝试 1/3)
+2025-08-27 13:48:46,198 - INFO - ✅ pallets/flask 下载完成
+2025-08-27 13:48:46,213 - INFO - 正在下载 spring-projects/spring-framework (尝试 1/3)
+2025-08-27 13:48:46,530 - INFO - ✅ huggingface/transformers 下载完成
+2025-08-27 13:48:46,769 - INFO - 正在下载 spring-projects/spring-boot (尝试 1/3)
+2025-08-27 13:48:48,313 - INFO - ✅ pytorch/pytorch 下载完成
+2025-08-27 13:48:48,738 - INFO - 正在下载 elastic/elasticsearch (尝试 1/3)
+2025-08-27 13:48:50,721 - INFO - ✅ spring-projects/spring-boot 下载完成
+2025-08-27 13:48:50,845 - INFO - ✅ spring-projects/spring-framework 下载完成
+2025-08-27 13:48:52,412 - INFO - ✅ tensorflow/tensorflow 下载完成
+2025-08-27 13:48:52,699 - INFO - 正在下载 apache/kafka (尝试 1/3)
+2025-08-27 13:48:54,429 - INFO - 正在下载 apache/hadoop (尝试 1/3)
+2025-08-27 13:48:54,626 - INFO - 正在下载 microsoft/vcpkg (尝试 1/3)
+2025-08-27 13:48:55,993 - INFO - ✅ microsoft/vcpkg 下载完成
+2025-08-27 13:48:56,615 - INFO - 正在下载 facebook/folly (尝试 1/3)
+2025-08-27 13:48:57,761 - INFO - ✅ apache/kafka 下载完成
+2025-08-27 13:48:58,171 - INFO - 正在下载 google/leveldb (尝试 1/3)
+2025-08-27 13:48:58,237 - INFO - ✅ facebook/folly 下载完成
+2025-08-27 13:48:58,307 - INFO - 正在下载 osquery/osquery (尝试 1/3)
+2025-08-27 13:48:58,598 - INFO - ✅ google/leveldb 下载完成
+2025-08-27 13:48:58,607 - INFO - 正在下载 simdjson/simdjson (尝试 1/3)
+2025-08-27 13:48:59,287 - INFO - ✅ simdjson/simdjson 下载完成
+2025-08-27 13:48:59,325 - INFO - 正在下载 kubernetes/kubernetes (尝试 1/3)
+2025-08-27 13:48:59,344 - INFO - ✅ osquery/osquery 下载完成
+2025-08-27 13:48:59,509 - INFO - 正在下载 moby/moby (尝试 1/3)
+2025-08-27 13:49:03,673 - INFO - ✅ moby/moby 下载完成
+2025-08-27 13:49:04,248 - INFO - 正在下载 prometheus/prometheus (尝试 1/3)
+2025-08-27 13:49:05,108 - INFO - ✅ elastic/elasticsearch 下载完成
+2025-08-27 13:49:05,483 - INFO - ✅ prometheus/prometheus 下载完成
+2025-08-27 13:49:05,761 - INFO - 正在下载 etcd-io/etcd (尝试 1/3)
+2025-08-27 13:49:05,887 - INFO - ✅ apache/hadoop 下载完成
+2025-08-27 13:49:06,483 - INFO - ✅ etcd-io/etcd 下载完成
+2025-08-27 13:49:07,019 - INFO - 正在下载 istio/istio (尝试 1/3)
+2025-08-27 13:49:07,347 - INFO - ✅ kubernetes/kubernetes 下载完成
+2025-08-27 13:49:09,094 - INFO - ✅ istio/istio 下载完成
+2025-08-27 13:49:15,484 - INFO - 正在下载 rust-lang/rust (尝试 1/3)
+2025-08-27 13:49:16,571 - INFO - 正在下载 tauri-apps/tauri (尝试 1/3)
+2025-08-27 13:49:17,560 - INFO - ✅ tauri-apps/tauri 下载完成
+2025-08-27 13:49:18,705 - INFO - 正在下载 surrealdb/surrealdb (尝试 1/3)
+2025-08-27 13:49:19,677 - INFO - ✅ surrealdb/surrealdb 下载完成
+2025-08-27 13:49:20,311 - INFO - 正在下载 tokio-rs/tokio (尝试 1/3)
+2025-08-27 13:49:20,809 - INFO - ✅ tokio-rs/tokio 下载完成
+2025-08-27 13:49:26,238 - INFO - ✅ rust-lang/rust 下载完成

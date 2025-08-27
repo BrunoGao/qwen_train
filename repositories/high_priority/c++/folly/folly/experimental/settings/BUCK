@@ -1,0 +1,59 @@
+load("@fbcode_macros//build_defs:build_file_migration.bzl", "fbcode_target", "non_fbcode_target")
+load("@fbcode_macros//build_defs:cpp_library.bzl", "cpp_library")
+load("@fbsource//xplat/folly:defs.bzl", "folly_xplat_library")
+load("@fbsource//xplat/pfh/triage_InfrastructureSupermoduleOptou:DEFS.bzl", "triage_InfrastructureSupermoduleOptou")
+
+oncall("fbcode_entropy_wardens_folly")
+
+# xplat build rules
+
+non_fbcode_target(
+    _kind = folly_xplat_library,
+    name = "settings",
+    feature = triage_InfrastructureSupermoduleOptou,
+    raw_headers = [
+        "Immutables.h",
+        "Settings.h",
+        "Types.h",
+        "detail/SettingsImpl.h",
+    ],
+    deps = [
+        "//xplat/folly/settings:settings_settings",
+    ],
+)
+
+# fbcode build rules
+
+fbcode_target(
+    _kind = cpp_library,
+    name = "settings",
+    headers = [
+        "Settings.h",
+        "detail/SettingsImpl.h",
+    ],
+    exported_deps = [
+        "//folly/settings:settings",
+    ],
+)
+
+fbcode_target(
+    _kind = cpp_library,
+    name = "types",
+    headers = [
+        "Types.h",
+    ],
+    exported_deps = [
+        "//folly/settings:types",
+    ],
+)
+
+fbcode_target(
+    _kind = cpp_library,
+    name = "immutables",
+    headers = [
+        "Immutables.h",
+    ],
+    exported_deps = [
+        "//folly/settings:immutables",
+    ],
+)

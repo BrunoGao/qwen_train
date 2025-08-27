@@ -1,0 +1,4 @@
+*:*/libraries/*
+*:*/libs/src/*
+*:*/installed_formulas/*
+*:*/openssl/*

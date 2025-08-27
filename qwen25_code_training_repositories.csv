@@ -1,0 +1,26 @@
+id,name,full_name,url,language,secondary_languages,stars,category,domain,recommendation_reason,priority,code_quality_score
+1,tensorflow,tensorflow/tensorflow,https://github.com/tensorflow/tensorflow,Python,"C++,CUDA",190000+,AI/机器学习框架,深度学习,最成熟的机器学习框架，代码质量极高，架构设计优秀，适合学习大规模ML系统设计,HIGH,9.5
+2,transformers,huggingface/transformers,https://github.com/huggingface/transformers,Python,CUDA,144000+,AI/机器学习框架,自然语言处理,NLP领域标杆项目，Transformer模型实现，代码结构清晰，文档完善,HIGH,9.3
+3,pytorch,pytorch/pytorch,https://github.com/pytorch/pytorch,Python,"C++,CUDA",89800+,AI/机器学习框架,深度学习,PyTorch深度学习框架，动态计算图设计优秀，API设计人性化,HIGH,9.4
+4,django,django/django,https://github.com/django/django,Python,,82000+,Web框架,后端开发,Python Web框架典范，MVC架构，ORM设计，代码组织极佳,HIGH,9.2
+5,fastapi,tiangolo/fastapi,https://github.com/tiangolo/fastapi,Python,,65000+,Web框架,API开发,现代高性能API框架，异步处理，类型提示，自动文档生成,HIGH,9.0
+6,flask,pallets/flask,https://github.com/pallets/flask,Python,,60000+,Web框架,轻量级Web开发,微框架设计哲学，简洁优雅，扩展性强，适合学习框架设计,MEDIUM,8.8
+7,spring-framework,spring-projects/spring-framework,https://github.com/spring-projects/spring-framework,Java,,58000+,企业级框架,后端开发,Java企业级开发标杆，依赖注入，AOP设计，架构设计典范,HIGH,9.3
+8,spring-boot,spring-projects/spring-boot,https://github.com/spring-projects/spring-boot,Java,,75000+,企业级框架,微服务开发,约定优于配置，自动装配，现代Java开发标准,HIGH,9.1
+9,elasticsearch,elastic/elasticsearch,https://github.com/elastic/elasticsearch,Java,,69000+,搜索引擎,分布式搜索,分布式搜索和分析引擎，Lucene应用，集群管理优秀,HIGH,9.0
+10,kafka,apache/kafka,https://github.com/apache/kafka,Java,Scala,28000+,分布式系统,流处理平台,高吞吐量消息队列，分布式架构，持久化设计优秀,HIGH,9.2
+11,hadoop,apache/hadoop,https://github.com/apache/hadoop,Java,,14000+,大数据处理,分布式计算,大数据生态基础，HDFS分布式文件系统，MapReduce计算模型,MEDIUM,8.5
+12,vcpkg,microsoft/vcpkg,https://github.com/Microsoft/vcpkg,C++,CMake,23000+,包管理器,构建工具,C++包管理器，构建系统设计，跨平台支持,MEDIUM,8.7
+13,folly,facebook/folly,https://github.com/facebook/folly,C++,,28000+,系统库,高性能组件,Facebook开源C++库，高性能数据结构，内存管理优化,HIGH,9.0
+14,leveldb,google/leveldb,https://github.com/google/leveldb,C++,,36000+,数据库,键值存储,Google开源键值数据库，LSM树实现，存储引擎设计典范,HIGH,9.1
+15,osquery,osquery/osquery,https://github.com/osquery/osquery,C++,,22000+,系统工具,系统监控,SQL驱动的操作系统监控工具，系统编程实践优秀,MEDIUM,8.8
+16,simdjson,simdjson/simdjson,https://github.com/simdjson/simdjson,C++,,19000+,解析库,性能优化,高性能JSON解析库，SIMD优化，性能工程典范,MEDIUM,8.9
+17,kubernetes,kubernetes/kubernetes,https://github.com/kubernetes/kubernetes,Go,,111000+,分布式系统,容器编排,容器编排系统，分布式架构典范，云原生技术标杆,HIGH,9.5
+18,moby,moby/moby,https://github.com/moby/moby,Go,,68000+,容器技术,虚拟化,Docker核心项目，容器技术实现，系统级编程,HIGH,9.2
+19,prometheus,prometheus/prometheus,https://github.com/prometheus/prometheus,Go,,55000+,监控系统,可观测性,时序数据库和监控系统，Pull模型设计，PromQL查询语言,HIGH,9.0
+20,etcd,etcd-io/etcd,https://github.com/etcd-io/etcd,Go,,47000+,分布式系统,共识算法,分布式键值存储，Raft共识算法实现，一致性系统设计,HIGH,9.1
+21,istio,istio/istio,https://github.com/istio/istio,Go,,36000+,微服务,服务网格,服务网格技术，流量管理，安全策略，可观测性,MEDIUM,8.7
+22,rust,rust-lang/rust,https://github.com/rust-lang/rust,Rust,,97000+,编程语言,编译器技术,Rust语言本身，编译器技术，内存安全，类型系统设计,HIGH,9.8
+23,tauri,tauri-apps/tauri,https://github.com/tauri-apps/tauri,Rust,TypeScript,85000+,应用框架,桌面应用,跨平台桌面应用框架，WebView集成，安全设计,MEDIUM,8.8
+24,surrealdb,surrealdb/surrealdb,https://github.com/surrealdb/surrealdb,Rust,,27000+,数据库,多模型数据库,现代数据库，多模型支持，查询引擎设计，ACID事务,HIGH,9.0
+25,tokio,tokio-rs/tokio,https://github.com/tokio-rs/tokio,Rust,,26000+,异步运行时,并发编程,异步运行时，事件循环，并发编程典范，零成本抽象,HIGH,9.2
